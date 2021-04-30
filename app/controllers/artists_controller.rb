@@ -9,9 +9,10 @@ class ArtistsController < ApplicationController
     if @artist
       render :show
     else
-      redirect_to(artists_path(@artists))
+      redirect_to artists_path
     end
   end
+  
 
   def new
     @artist = Artist.new
@@ -19,7 +20,7 @@ class ArtistsController < ApplicationController
 
   def create
     @artist = Artist.create(artist_params)
-    redirect_to artist_path(@artist)
+    redirect_to artists_path
   end
 
   def edit
@@ -27,7 +28,7 @@ class ArtistsController < ApplicationController
 
   def update
     @artist.update(artist_params)
-	redirect_to artist_path(@artist)
+	  redirect_to artist_path
   end
 
   private
